@@ -1,0 +1,442 @@
+{
+  "info": {
+    "_postman_id": "92bf4ec4-e05b-4bf1-a09e-7fa522760118",
+    "name": "ConnectOFarm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46453421"
+  },
+  "item": [
+    {
+      "name": "register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"yourUsername\",\"password\":\"yourPassword\",\"email\":\"yourEmail\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/auth/register \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"username\":\"yourUsername\",\"password\":\"yourPassword\",\"email\":\"yourEmail\"}'"
+      },
+      "response": []
+    },
+    {
+      "name": "Authentication",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"yourUsername\",\"password\":\"yourPassword\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/auth/authenticate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "authenticate"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/auth/authenticate \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"username\":\"yourUsername\",\"password\":\"yourPassword\"}'"
+      },
+      "response": []
+    },
+    {
+      "name": "place order",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"postId\":1,\"quantity\":2}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/consumer/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "consumer",
+            "orders"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/consumer/orders \\\n  -H \"Authorization: Bearer <TOKEN>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"postId\":1,\"quantity\":2}'"
+      },
+      "response": []
+    },
+    {
+      "name": "confirm order",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/farmer/orders/1/confirm",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "farmer",
+            "orders",
+            "1",
+            "confirm"
+          ]
+        },
+        "description": "Generated from cURL: curl -X PUT http://localhost:8080/api/v1/farmer/orders/1/confirm \\\n  -H \"Authorization: Bearer <TOKEN>\""
+      },
+      "response": []
+    },
+    {
+      "name": "get consumer order",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/consumer/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "consumer",
+            "orders"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/consumer/orders \\\n  -H \"Authorization: Bearer <TOKEN>\""
+      },
+      "response": []
+    },
+    {
+      "name": "get farmer orders",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/farmer/orders",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "farmer",
+            "orders"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/farmer/orders \\\n  -H \"Authorization: Bearer <TOKEN>\""
+      },
+      "response": []
+    },
+    {
+      "name": "create farmer post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "type": "text",
+              "contentType": "application/json",
+              "key": "post",
+              "value": "{\"title\":\"Post Title\",\"description\":\"Desc\",\"price\":100,\"quantity\":10}"
+            },
+            {
+              "type": "file",
+              "key": "image",
+              "src": "/path/to/image.jpg"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/farmer/posts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "farmer",
+            "posts"
+          ]
+        },
+        "description": "Generated from cURL: curl -X POST http://localhost:8080/api/v1/farmer/posts \\\n  -H \"Authorization: Bearer <TOKEN>\" \\\n  -F 'post={\"title\":\"Post Title\",\"description\":\"Desc\",\"price\":100,\"quantity\":10};type=application/json' \\\n  -F \"image=@/path/to/image.jpg\""
+      },
+      "response": []
+    },
+    {
+      "name": "get farmer posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/posts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "posts"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/posts"
+      },
+      "response": []
+    },
+    {
+      "name": "get post by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/posts/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "posts",
+            "1"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/posts/1"
+      },
+      "response": []
+    },
+    {
+      "name": "delete post",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/farmer/posts/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "farmer",
+            "posts",
+            "1"
+          ]
+        },
+        "description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/v1/farmer/posts/1 \\\n  -H \"Authorization: Bearer <TOKEN>\""
+      },
+      "response": []
+    },
+    {
+      "name": "get my post(farmer)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/farmer/posts/my-posts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "farmer",
+            "posts",
+            "my-posts"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/farmer/posts/my-posts \\\n  -H \"Authorization: Bearer <TOKEN>\""
+      },
+      "response": []
+    },
+    {
+      "name": "get all users",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/admin/users",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "users"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/admin/users \\\n  -H \"Authorization: Bearer <TOKEN>\""
+      },
+      "response": []
+    },
+    {
+      "name": "get all farmers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/admin/farmers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "farmers"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/admin/farmers \\\n  -H \"Authorization: Bearer <TOKEN>\""
+      },
+      "response": []
+    },
+    {
+      "name": "get all consumers",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer <TOKEN>"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/admin/consumers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "admin",
+            "consumers"
+          ]
+        },
+        "description": "Generated from cURL: curl -X GET http://localhost:8080/api/v1/admin/consumers \\\n  -H \"Authorization: Bearer <TOKEN>\""
+      },
+      "response": []
+    }
+  ]
+}
